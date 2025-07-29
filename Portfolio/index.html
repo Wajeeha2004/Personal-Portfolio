@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wajeeha Jahangir | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #6c63ff;
+            --secondary-color: #4d44db;
+            --dark-color: #2a2a72;
+            --light-color: #f8f9fa;
+            --accent-color: #ff6584;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+            padding-top: 70px; /* Added for fixed navbar */
+        }
+        
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary-color) !important;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            color: #333 !important;
+            margin: 0 10px;
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+        }
+        
+        .nav-link.active {
+            color: var(--primary-color) !important;
+        }
+        
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary-color);
+            border-radius: 3px;
+        }
+        
+        .hero {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 10px 25px;
+            font-weight: 500;
+            border-radius: 50px;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+        
+        .btn-outline-primary {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 10px 25px;
+            font-weight: 500;
+            border-radius: 50px;
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-weight: 700;
+            color: var(--dark-color);
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+        }
+        
+        .about-img {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .about-img img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-text {
+            flex: 1;
+            padding-left: 30px;
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .skill-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            width: 150px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .skill-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 30px;
+            height: 100%;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+        
+        .project-content {
+            padding: 20px;
+        }
+        
+        .project-title {
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+        
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .tech-badge {
+            background-color: #e0e0ff;
+            color: var(--primary-color);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .education-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .education-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .education-title {
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 10px;
+        }
+        
+        .education-date {
+            color: #777;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+        
+        .certificate-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .certificate-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .certificate-title {
+            font-weight: 600;
+            color: var(--dark-color);
+            margin-bottom: 5px;
+        }
+        
+        .certificate-issuer {
+            color: #777;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        
+        .contact-info {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            height: 100%;
+        }
+        
+        .contact-icon {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        
+        .contact-title {
+            font-weight: 600;
+            color: var(--dark-color);
+            margin-bottom: 15px;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .social-icons {
+            margin: 20px 0;
+        }
+        
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            margin: 0 10px;
+            transition: background-color 0.3s;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .skill-badge {
+            background-color: #e0e0ff;
+            color: var(--primary-color);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            display: inline-block;
+            margin: 2px;
+        }
+        
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-text {
+                padding-left: 0;
+                margin-top: 30px;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            body {
+                padding-top: 60px;
+            }
+        }
+    </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target=".navbar">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Wajeeha Jahangir</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#education">Education</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#certificates">Certificates</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Hi, I'm Wajeeha Jahangir</h1>
+            <p>A passionate Computer Science student specializing in Web Development and Designing, with hands-on experience in building innovative projects and applications.</p>
+            <a href="#projects" class="btn btn-primary me-2">View My Work</a>
+            <a href="#contact" class="btn btn-outline-primary">Contact Me</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="about-img">
+                        <img src="https://img.freepik.com/premium-vector/software-developer-vector-illustration-communication-technology-cyber-security_1249867-5464.jpg?semt=ais_hybrid&w=740" alt="Wajeeha Jahangir" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-text">
+                        <h3>Computer Science Student & Developer</h3>
+                        <p>I'm currently pursuing my Bachelor's degree in Computer and Information Sciences at Pakistan Institute of Engineering and Applied Sciences with a CGPA of 3.70.</p>
+                        <p>I am a passionate web developer and designer with experience building responsive websites, web applications, and engaging user interfaces.</p>
+                        <p>My technical skills include programming in C, C++, Python, and JavaScript, along with expertise in frameworks like React and ASP.NET. I'm also experienced in database management and IoT development using Arduino and Raspberry Pi.</p>
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Email:</strong> wajeehajahangir20@gmail.com</li>
+                                    <li><strong>Phone:</strong> 03364769728</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Degree:</strong> Bachelors</li>
+                                    <li><strong>City:</strong> Islamabad, Pakistan</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+    <!-- Skills Section -->
+<section id="skills" class="py-5 bg-light">
+    <div class="container">
+        <div class="section-title">
+            <h2>Technical Skills</h2>
+          
+        </div>
+        
+        <div class="row">
+            <!-- Programming Languages -->
+            <div class="col-md-6 mb-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-primary bg-opacity-10 p-3 rounded me-3">
+                                <i class="fas fa-code text-primary fs-4"></i>
+                            </div>
+                            <h3 class="h5 mb-0">Programming Languages</h3>
+                        </div>
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="badge bg-primary bg-opacity-10 text-primary py-2 px-3">
+                                <i class="fab fa-python me-1"></i> Python
+                            </span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary py-2 px-3">
+                                <i class="fas fa-c me-1"></i> C
+                            </span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary py-2 px-3">
+                                <i class="fas fa-plus me-1"></i> C++
+                            </span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary py-2 px-3">
+                                <i class="fab fa-js me-1"></i> JavaScript
+                            </span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary py-2 px-3">
+                                <i class="fas fa-database me-1"></i> SQL
+                            </span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary py-2 px-3">
+                                <i class="fab fa-microsoft me-1"></i> VB.NET
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Web Development -->
+            <div class="col-md-6 mb-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-primary bg-opacity-10 p-3 rounded me-3">
+                                <i class="fas fa-laptop-code text-primary fs-4"></i>
+                            </div>
+                            <h3 class="h5 mb-0">Web Development</h3>
+                        </div>
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="badge bg-primary bg-opacity-10 text-primary py-2 px-3">
+                                <i class="fab fa-html5 me-1"></i> HTML5
+                            </span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary py-2 px-3">
+                                <i class="fab fa-css3-alt me-1"></i> CSS3
+                            </span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary py-2 px-3">
+                                <i class="fab fa-bootstrap me-1"></i> Bootstrap
+                            </span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary py-2 px-3">
+                                <i class="fab fa-react me-1"></i> React
+                            </span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary py-2 px-3">
+                                <i class="fab fa-node-js me-1"></i> ASP.NET
+                            </span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary py-2 px-3">
+                                <i class="fas fa-paint-brush me-1"></i> Tailwind CSS
+                            </span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary py-2 px-3">
+                                <i class="fas fa-pencil-ruler me-1"></i> Figma
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- IoT & Embedded Systems -->
+            <div class="col-md-6 mb-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-primary bg-opacity-10 p-3 rounded me-3">
+                                <i class="fas fa-microchip text-primary fs-4"></i>
+                            </div>
+                            <h3 class="h5 mb-0">IoT & Embedded Systems</h3>
+                        </div>
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="badge bg-primary bg-opacity-10 text-primary py-2 px-3">
+                                <i class="fas fa-microcontroller me-1"></i> Arduino
+                            </span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary py-2 px-3">
+                                <i class="fas fa-raspberry-pi me-1"></i> Raspberry Pi
+                            </span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary py-2 px-3">
+                                <i class="fas fa-project-diagram me-1"></i> Node-RED
+                            </span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary py-2 px-3">
+                                <i class="fas fa-cloud me-1"></i> Blynk
+                            </span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary py-2 px-3">
+                                <i class="fas fa-sensor me-1"></i> Sensors
+                            </span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary py-2 px-3">
+                                <i class="fas fa-network-wired me-1"></i> MQTT
+                            </span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary py-2 px-3">
+                                <i class="fas fa-wifi me-1"></i> ESP8266/ESP32
+                            </span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary py-2 px-3">
+                                <i class="fas fa-sync-alt me-1"></i> OTA Updates
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Databases & Tools -->
+            <div class="col-md-6 mb-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-primary bg-opacity-10 p-3 rounded me-3">
+                                <i class="fas fa-database text-primary fs-4"></i>
+                            </div>
+                            <h3 class="h5 mb-0">Databases & Tools</h3>
+                        </div>
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="badge bg-primary bg-opacity-10 text-primary py-2 px-3">
+                                <i class="fas fa-database me-1"></i> Oracle
+                            </span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary py-2 px-3">
+                                <i class="fas fa-server me-1"></i> SQL Server
+                            </span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary py-2 px-3">
+                                <i class="fas fa-code me-1"></i> Visual Studio
+                            </span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary py-2 px-3">
+                                <i class="fab fa-google me-1"></i> Google Colab
+                            </span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary py-2 px-3">
+                                <i class="fas fa-book me-1"></i> Jupyter Notebook
+                            </span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary py-2 px-3">
+                                <i class="fas fa-chart-line me-1"></i> Power BI
+                            </span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary py-2 px-3">
+                                <i class="fas fa-cog me-1"></i> Dev C++
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- APIs & Cloud Services -->
+            <div class="col-md-6 mb-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-primary bg-opacity-10 p-3 rounded me-3">
+                                <i class="fas fa-cloud text-primary fs-4"></i>
+                            </div>
+                            <h3 class="h5 mb-0">APIs & Cloud Services</h3>
+                        </div>
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="badge bg-primary bg-opacity-10 text-primary py-2 px-3">
+                                <i class="fas fa-robot me-1"></i> Hugging Face API
+                            </span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary py-2 px-3">
+                                <i class="fas fa-cloud-sun me-1"></i> OpenWeatherMap API
+                            </span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary py-2 px-3">
+                                <i class="fas fa-cloud me-1"></i> Blynk Cloud
+                            </span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary py-2 px-3">
+                                <i class="fas fa-random me-1"></i> IFTTT
+                            </span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary py-2 px-3">
+                                <i class="fab fa-google me-1"></i> Google Assistant
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Other Skills -->
+            <div class="col-md-6 mb-4">
+                <div class="card h-100 border-0 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-primary bg-opacity-10 p-3 rounded me-3">
+                                <i class="fas fa-tools text-primary fs-4"></i>
+                            </div>
+                            <h3 class="h5 mb-0">Other Skills</h3>
+                        </div>
+                        <div class="d-flex flex-wrap gap-2">
+                            <span class="badge bg-primary bg-opacity-10 text-primary py-2 px-3">
+                                <i class="fas fa-mobile-alt me-1"></i> Responsive Design
+                            </span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary py-2 px-3">
+                                <i class="fas fa-paint-brush me-1"></i> UI/UX Design
+                            </span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary py-2 px-3">
+                                <i class="fas fa-chart-bar me-1"></i> Data Visualization
+                            </span>
+                            <span class="badge bg-primary bg-opacity-10 text-primary py-2 px-3">
+                                <i class="fas fa-lightbulb me-1"></i> Problem Solving
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Skill Proficiency Bars (Optional) -->
+        <div class="mt-5">
+            <h4 class="text-center mb-4">Skill Proficiency</h4>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between mb-1">
+                            <span>HTML/CSS</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="progress" style="height: 8px;">
+                            <div class="progress-bar bg-primary" role="progressbar" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between mb-1">
+                            <span>JavaScript</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress" style="height: 8px;">
+                            <div class="progress-bar bg-primary" role="progressbar" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between mb-1">
+                            <span>React</span>
+                            <span>80%</span>
+                        </div>
+                        <div class="progress" style="height: 8px;">
+                            <div class="progress-bar bg-primary" role="progressbar" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between mb-1">
+                            <span>Python</span>
+                            <span>88%</span>
+                        </div>
+                        <div class="progress" style="height: 8px;">
+                            <div class="progress-bar bg-primary" role="progressbar" style="width: 88%"></div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between mb-1">
+                            <span>IoT Development</span>
+                            <span>82%</span>
+                        </div>
+                        <div class="progress" style="height: 8px;">
+                            <div class="progress-bar bg-primary" role="progressbar" style="width: 82%"></div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="d-flex justify-content-between mb-1">
+                            <span>Database Management</span>
+                            <span>85%</span>
+                        </div>
+                        <div class="progress" style="height: 8px;">
+                            <div class="progress-bar bg-primary" role="progressbar" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+   
+    <!-- Projects Section -->
+    <section id="projects" class="py-5">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Projects</h2>
+            </div>
+            
+            <!-- Web Development Projects -->
+            <div class="mb-5">
+                <h3 class="mb-4 text-primary"><i class="fas fa-laptop-code me-2"></i> Web Development</h3>
+                <div class="row">
+                    <!-- Online Grocery Store -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="project-card h-100">
+                            <div class="project-img">
+                                <img src="https://www.blinkco.io/wp-content/uploads/2022/02/grocery-shopping-5987164_1280.jpg" alt="Online Grocery Store">
+                            </div>
+                            <div class="project-content">
+                                <h4 class="project-title">Online Grocery Store</h4>
+                                <p class="mb-3">Full-featured e-commerce platform with admin and supplier dashboards.</p>
+                                <div class="project-tech mb-3">
+                                    <span class="tech-badge">ASP.NET</span>
+                                    <span class="tech-badge">VB.NET</span>
+                                    <span class="tech-badge">SQL Server</span>
+                                    <span class="tech-badge">HTML/CSS</span>
+                                </div>
+            
+                                <ul class="project-details ps-3 mt-2" style="display: none;">
+                                    <li>Implemented secure user authentication and session management</li>
+                                    <li>Designed interactive product catalog with real-time shopping cart</li>
+                                    <li>Built dynamic admin/supplier dashboards for inventory management</li>
+                                    <li>Optimized SQL queries for performance and data integrity</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- AI Text Summarizer -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="project-card h-100">
+                            <div class="project-img">
+                                <img src="https://cdn.prod.website-files.com/61e7d259b7746e3f63f0b6be/64eca71f9097536a88403515_tutorial_how_to_summarize_text_with_ai%20(1).webp" alt="AI Text Summarizer">
+                            </div>
+                            <div class="project-content">
+                                <h4 class="project-title">AI Text Summarizer</h4>
+                                <p class="mb-3">Web app using Hugging Face's BART model for text summarization.</p>
+                                <div class="project-tech mb-3">
+                                    <span class="tech-badge">React</span>
+                                    <span class="tech-badge">Tailwind CSS</span>
+                                    <span class="tech-badge">Hugging Face API</span>
+                                    <span class="tech-badge">Figma</span>
+                                </div>
+                              
+                                <ul class="project-details ps-3 mt-2" style="display: none;">
+                                    <li>Integrated BART-large-CNN model via API</li>
+                                    <li>Built responsive UI with animated loading states</li>
+                                    <li>Implemented copy functionality and error handling</li>
+                                    <li>Optimized API calls with React hooks</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Real Estate Web App -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="project-card h-100">
+                            <div class="project-img">
+                                <img src="https://cms-assets.themuse.com/media/lead/_1200x630_crop_center-center_82_none/what-is-real-estate.png?mtime=1721326416" alt="Real Estate Web App">
+                            </div>
+                            <div class="project-content">
+                                <h4 class="project-title">Real Estate Web App</h4>
+                                <p class="mb-3">Property listings with interactive cards and smooth animations.</p>
+                                <div class="project-tech mb-3">
+                                    <span class="tech-badge">React</span>
+                                    <span class="tech-badge">Tailwind CSS</span>
+                                    <span class="tech-badge">Responsive</span>
+                                </div>
+                                
+                                <ul class="project-details ps-3 mt-2" style="display: none;">
+                                    <li>Developed responsive real estate web app</li>
+                                    <li>Engineered mobile-first UI with dynamic navigation</li>
+                                    <li>Optimized performance through code splitting</li>
+                                    <li>Implemented lazy loading and efficient state management</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Weather Web App -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="project-card h-100">
+                            <div class="project-img">
+                                <img src="https://static.vecteezy.com/system/resources/thumbnails/013/250/798/small_2x/weather-app-3d-rendering-isometric-icon-png.png" alt="Weather Web App">
+                            </div>
+                            <div class="project-content">
+                                <h4 class="project-title">Weather Web App</h4>
+                                <p class="mb-3">Real-time weather data from OpenWeatherMap API.</p>
+                                <div class="project-tech mb-3">
+                                    <span class="tech-badge">HTML</span>
+                                    <span class="tech-badge">CSS</span>
+                                    <span class="tech-badge">JavaScript</span>
+                                    <span class="tech-badge">API</span>
+                                </div>
+                              
+                                <ul class="project-details ps-3 mt-2" style="display: none;">
+                                    <li>Fetches real-time weather data from OpenWeatherMap</li>
+                                    <li>Dynamic city search and temperature display</li>
+                                    <li>Humidity tracking and weather condition icons</li>
+                                    <li>Responsive UI with error handling</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Quiz Application -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="project-card h-100">
+                            <div class="project-img">
+                                <img src="https://apptraitsolutions.com/wp-content/uploads/2021/01/C88IZyEo7g-1.jpg" alt="Quiz Application">
+                            </div>
+                            <div class="project-content">
+                                <h4 class="project-title">Quiz Application</h4>
+                                <p class="mb-3">Interactive quiz with dynamic question loading.</p>
+                                <div class="project-tech mb-3">
+                                    <span class="tech-badge">HTML</span>
+                                    <span class="tech-badge">CSS</span>
+                                    <span class="tech-badge">JavaScript</span>
+                                </div>
+                                
+                                <ul class="project-details ps-3 mt-2" style="display: none;">
+                                    <li>Dynamic question loading and answer validation</li>
+                                    <li>Scoring system with radio-button selection</li>
+                                    <li>Complete quiz flow from start to results</li>
+                                    <li>Final score calculation and display</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Bakery Website -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="project-card h-100">
+                            <div class="project-img">
+                                <img src="https://www.shutterstock.com/image-vector/sweet-bakery-shop-website-template-600w-2438159455.jpg" alt="Bakery Website">
+                            </div>
+                            <div class="project-content">
+                                <h4 class="project-title">Responsive Bakery Website</h4>
+                                <p class="mb-3">Fully responsive website with engaging UI.</p>
+                                <div class="project-tech mb-3">
+                                    <span class="tech-badge">HTML</span>
+                                    <span class="tech-badge">CSS</span>
+                                    <span class="tech-badge">Bootstrap 5</span>
+                                </div>
+                                 <ul class="project-details ps-3 mt-2" style="display: none;">
+                                    <li>Interactive navbar and hero section</li>
+                                    <li>Product cards for engaging UI</li>
+                                    <li>Mobile-first design with Bootstrap grid</li>
+                                    <li>Structured About Us, Menu, and Contact sections</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- IoT Projects -->
+            <div class="mb-5">
+                <h3 class="mb-4 text-primary"><i class="fas fa-microchip me-2"></i> IoT & Embedded Systems</h3>
+                <div class="row">
+                    <!-- Voice-Controlled Home Automation -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="project-card h-100">
+                            <div class="project-img">
+                                <img src="https://teco-me.cz/teco/public/photos/1/SOLUTIONS/voice%20command/voice-command-1.png" alt="Voice-Controlled Home Automation">
+                            </div>
+                            <div class="project-content">
+                                <h4 class="project-title">Voice-Controlled Home Automation</h4>
+                                <p class="mb-3">Smart home system controlled by Google Assistant.</p>
+                                <div class="project-tech mb-3">
+                                    <span class="tech-badge">Arduino</span>
+                                    <span class="tech-badge">ESP8266</span>
+                                    <span class="tech-badge">Blynk</span>
+                                    <span class="tech-badge">IFTTT</span>
+                                </div>
+                                
+                                <ul class="project-details ps-3 mt-2" style="display: none;">
+                                    <li>Controlled by Google Assistant voice commands</li>
+                                    <li>Used IFTTT with Webhooks for voice processing</li>
+                                    <li>Blynk mobile app control dashboard</li>
+                                    <li>Device management through Blynk platform</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- IoT Sensor Monitoring -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="project-card h-100">
+                            <div class="project-img">
+                                <img src="https://mwi.com.sg/storage/2022/01/temperature-monitoring-system-wireless.webp" alt="IoT Sensor Monitoring">
+                            </div>
+                            <div class="project-content">
+                                <h4 class="project-title">IoT Sensor Monitoring System</h4>
+                                <p class="mb-3">Collects and visualizes sensor data in real-time.</p>
+                                <div class="project-tech mb-3">
+                                    <span class="tech-badge">Arduino C++</span>
+                                    <span class="tech-badge">ESP32</span>
+                                    <span class="tech-badge">MQTT</span>
+                                    <span class="tech-badge">Node-RED</span>
+                                </div>
+                               
+                                <ul class="project-details ps-3 mt-2" style="display: none;">
+                                    <li>Collects sensor data (temperature, humidity)</li>
+                                    <li>Wireless data transmission via MQTT protocol</li>
+                                    <li>Interactive Node-RED dashboard</li>
+                                    <li>Real-time data visualization (charts/gauges)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- OTA Updates for IoT -->
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="project-card h-100">
+                            <div class="project-img">
+                                <img src="https://d2g2p0i8cc2bmh.cloudfront.net/2024-11/Over-the-Air%20Updates%20Explained.png" alt="OTA Updates for IoT">
+                            </div>
+                            <div class="project-content">
+                                <h4 class="project-title">OTA Updates for IoT Devices</h4>
+                                <p class="mb-3">Wireless firmware update system for IoT devices.</p>
+                                <div class="project-tech mb-3">
+                                    <span class="tech-badge">Arduino C++</span>
+                                    <span class="tech-badge">ESP8266</span>
+                                    <span class="tech-badge">ESP32</span>
+                                    <span class="tech-badge">OTA</span>
+                                </div>
+                                
+                                <ul class="project-details ps-3 mt-2" style="display: none;">
+                                    <li>Wireless firmware update system</li>
+                                    <li>Used ArduinoOTA and ElegantOTA libraries</li>
+                                    <li>LED blink patterns for verification</li>
+                                    <li>Remote device management</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Software Projects -->
+            <div>
+                <h3 class="mb-4 text-primary"><i class="fas fa-code me-2"></i> Software Development</h3>
+                <div class="row">
+                    <!-- ATM Simulator -->
+                    <div class="col-lg-4 col-md-6 mb-4 mx-auto">
+                        <div class="project-card h-100">
+                            <div class="project-img">
+                                <img src="https://img.pikbest.com/origin/09/24/21/08JpIkbEsT53Z.png!w700wp" alt="ATM Simulator">
+                            </div>
+                            <div class="project-content">
+                                <h4 class="project-title">ATM Simulator</h4>
+                                <p class="mb-3">Core banking functions with intuitive interface.</p>
+                                <div class="project-tech mb-3">
+                                    <span class="tech-badge">C</span>
+                                    <span class="tech-badge">Dev C++</span>
+                                </div>
+                                
+                                <ul class="project-details ps-3 mt-2" style="display: none;">
+                                    <li>Balance/deposit/withdraw functions</li>
+                                    <li>Input validation for transactions</li>
+                                    <li>Intuitive menu interface</li>
+                                    <li>Modular code structure</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-5 bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Education</h2>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="education-card">
+                        <h3 class="education-title">Bachelor of Computer and Information Sciences</h3>
+                        <p class="education-date">Sep 2022 - Present | CGPA: 3.70</p>
+                        <h5>Pakistan Institute of Engineering and Applied Sciences</h5>
+                        <p>Currently pursuing my degree with a focus on computer science fundamentals, programming, web development, and IoT technologies.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="py-5">
+        <div class="container">
+            <div class="section-title">
+                <h2>Certificates</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="certificate-card">
+                        <h4 class="certificate-title">Python for Data Science</h4>
+                        <p class="certificate-issuer">Cognitive Class | July 2023</p>
+                        <p>Completed comprehensive training in Python programming for data science applications.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="certificate-card">
+                        <h4 class="certificate-title">HTML5</h4>
+                        <p class="certificate-issuer">Infosys Springboard | August 2023</p>
+                        <p>Certification in modern HTML5 web development techniques and best practices.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="certificate-card">
+                        <h4 class="certificate-title">CSS3</h4>
+                        <p class="certificate-issuer">Infosys Springboard | July 2024</p>
+                        <p>Advanced CSS3 styling techniques including animations and responsive design.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="certificate-card">
+                        <h4 class="certificate-title">Microsoft Office Specialist: Word</h4>
+                        <p class="certificate-issuer">Microsoft | July 2021</p>
+                        <p>Certified in Microsoft Word (Office 2019) with advanced document creation skills.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="certificate-card">
+                        <h4 class="certificate-title">Responsive Web Design</h4>
+                        <p class="certificate-issuer">Coursera | July 2025</p>
+                        <p>Certification in creating responsive websites that work across all devices.</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="certificate-card">
+                        <h4 class="certificate-title">Advanced React</h4>
+                        <p class="certificate-issuer">Coursera | July 2025</p>
+                        <p>Advanced concepts in React including hooks, context API, and performance optimization.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Me</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="contact-info text-center">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h4 class="contact-title">Email</h4>
+                        <p>wajeehajahangir20@gmail.com</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="contact-info text-center">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h4 class="contact-title">Phone</h4>
+                        <p>03364769728</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="contact-info text-center">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <h4 class="contact-title">Location</h4>
+                        <p>Islamabad, Pakistan</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-lg-8 mx-auto">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <input type="text" class="form-control" placeholder="Your Name" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input type="email" class="form-control" placeholder="Your Email" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Subject">
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="5" placeholder="Message" required></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4">
+        <div class="container">
+            <h3 class="text-white">Wajeeha Jahangir</h3>
+            <p class="text-white-50">Computer Science Student & Developer</p>
+            <div class="social-icons">
+                <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            </div>
+            <p class="text-white-50 mb-0">&copy; 2023 Wajeeha Jahangir. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                
+                // Update active nav link
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+        
+        // Update active nav link on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 300) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Toggle project details
+        document.querySelectorAll('.toggle-details').forEach(button => {
+            button.addEventListener('click', function() {
+                const details = this.nextElementSibling;
+                
+                if (details.style.display === 'none' || !details.style.display) {
+                    details.style.display = 'block';
+                    this.textContent = 'Hide Details';
+                } else {
+                    details.style.display = 'none';
+                    this.textContent = 'View Details';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
